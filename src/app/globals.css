@@ -10,9 +10,14 @@
   --lightHover: #fcf4ff;
   --darkHover: #2a004a;
   --darkTheme: #11001F;
+
+
 }
 
 
+.hero-section-shade {
+  background: radial-gradient(72.04% 72.04% at 50% 3.99%, #89CFF0 0%, rgba(166, 151, 255, 0) 100%);
+}
 .resume-button {
   position: relative;
   overflow: hidden;
@@ -33,4 +38,113 @@
 .resume-button:hover::before {
   right: 0;
   
+}
+
+
+/* ---------- hamburger munu icon own ----------- */
+
+.menu-trigger .hamburger span {
+    height: 2px;
+    width: 26px;
+    display: block;
+    opacity: 1;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: black;
+}
+
+.menu-trigger .hamburger span:first-child {
+  
+    margin-bottom: 4px;
+}
+
+.menu-trigger .hamburger span:last-child {
+    margin-top: 4px;
+    width: 15px;
+    float: right;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+}
+.menu-trigger .hamburger:hover span:last-child {
+    width: 26px; 
+}
+
+.menu-trigger .menu-trigger-icon {
+    display: block;
+    width: 26px;
+    height: 23px;
+    cursor: pointer;
+    text-align: center;
+    -webkit-transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
+}
+/* 
+.bg-card-gradient {
+  background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
+  padding: 60px 45px;
+  box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.07);
+  display: flex;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1.5rem;
+} */
+
+.bg-card-gradient {
+  background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
+  padding: 60px 45px;
+  display: flex;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1.5rem;
+}
+
+/* Light Mode Card Background */
+.bg-lightCard {
+  background: #ffffff; /* Light background */
+  box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Card Background */
+.bg-darkCard {
+  background: rgba(255, 255, 255, 0.05); /* Dark background */
+  box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for cards */
+.bg-lightHover:hover {
+  background-color: #f0f0f0;
+}
+
+
+.bg-black-gradient {
+  background: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+}
+
+.bg-black-gradient-2 {
+  background: linear-gradient(
+    -168.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+}
+.blue__gradient_bg {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+
+}
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(123px);
+}
+
+.pink__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  /* filter: blur(900px); */
 }
