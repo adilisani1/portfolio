@@ -5,20 +5,37 @@
 } */
 
 @theme {
-  --font-Outfit: "Outfit", "sans-serif";
-  --font-ovo: "Ovo", "serif";
-  --lightHover: #fcf4ff;
-  --darkHover: #2a004a;
-  --darkTheme: #11001F;
+  --font-hanken: var(--font-hanken);
+  --font-outfit: var(--font-outfit);
+  --font-ovo: var(--font-ovo);
+  --font-barlow: var(--font-barlow);
+
+  --color-black-hover: #2a004a;
+  --color-orange-22: #1da1f2;
+  --color-blue-22: #31a8ff;
+}
 
 
+html {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
 }
 
 
 .hero-section-shade {
-  background: radial-gradient(72.04% 72.04% at 50% 3.99%, #89CFF0 0%, rgba(166, 151, 255, 0) 100%);
+  background: radial-gradient(
+    72.04% 72.04% at 50% 3.99%,
+    #89cff0 0%,
+    rgba(166, 151, 255, 0) 100%
+  );
 }
-.resume-button {
+
+    /* display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 7px; */
+/* .resume-button {
   position: relative;
   overflow: hidden;
 }
@@ -38,85 +55,70 @@
 .resume-button:hover::before {
   right: 0;
   
-}
-
+} */
 
 /* ---------- hamburger munu icon own ----------- */
 
 .menu-trigger .hamburger span {
-    height: 2px;
-    width: 26px;
-    display: block;
-    opacity: 1;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    background-color: black;
+  height: 2px;
+  width: 26px;
+  display: block;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: black;
 }
 
 .menu-trigger .hamburger span:first-child {
-  
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .menu-trigger .hamburger span:last-child {
-    margin-top: 4px;
-    width: 15px;
-    float: right;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
+  margin-top: 4px;
+  width: 15px;
+  float: right;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 .menu-trigger .hamburger:hover span:last-child {
-    width: 26px; 
+  width: 26px;
 }
 
 .menu-trigger .menu-trigger-icon {
-    display: block;
-    width: 26px;
-    height: 23px;
-    cursor: pointer;
-    text-align: center;
-    -webkit-transition: color 0.3s, background-color 0.3s;
-    transition: color 0.3s, background-color 0.3s;
+  display: block;
+  width: 26px;
+  height: 23px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
 }
-/* 
-.bg-card-gradient {
-  background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
-  padding: 60px 45px;
-  box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.07);
-  display: flex;
-  transition: box-shadow 0.3s ease;
-  overflow: hidden;
-  position: relative;
-  border-radius: 1.5rem;
-} */
 
 .bg-card-gradient {
-  background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
-  padding: 60px 45px;
-  display: flex;
+  background: linear-gradient(
+    108.44deg,
+    rgba(255, 255, 255, 0.1) 20.99%,
+    rgba(255, 255, 255, 0.025) 84.05%
+  );
   transition: box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
   border-radius: 1.5rem;
 }
 
-/* Light Mode Card Background */
 .bg-lightCard {
-  background: #ffffff; /* Light background */
+  background: #ffffff;
   box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Card Background */
 .bg-darkCard {
-  background: rgba(255, 255, 255, 0.05); /* Dark background */
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effect for cards */
 .bg-lightHover:hover {
   background-color: #f0f0f0;
 }
-
 
 .bg-black-gradient {
   background: linear-gradient(
@@ -137,7 +139,6 @@
 }
 .blue__gradient_bg {
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
-
 }
 .blue__gradient {
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
@@ -146,5 +147,37 @@
 
 .pink__gradient {
   background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
-  /* filter: blur(900px); */
+  filter: blur(900px);
+}
+
+.buttons {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  position: relative;
+  border: 1px solid rgba(255, 240, 240, 0.228);
+  overflow: hidden;
+  -webkit-transition: all 0.4s;
+  background-color:#11101d;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.buttons:hover {
+  color: #11101d;
+}
+.buttons::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #fff;
+  width: 5px;
+  height: 100%;
+  z-index: -1;
+  background-size: 200%;
+  transition: 0.4s;
+}
+.buttons:hover::after {
+  background-position: 100%;
+  width: 100%;
 }

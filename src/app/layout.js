@@ -1,30 +1,42 @@
-import { Outfit, Ovo } from "next/font/google";
+import {
+  Outfit,
+  Ovo,
+  Barlow_Condensed,
+  Hanken_Grotesk,
+} from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-outfit",
 });
 
 const ovo = Ovo({
   subsets: ["latin"],
   weight: "400",
+  variable: "--font-ovo",
 });
 
-export const metadata = {
-  title: "Portfolio - Muhammad Adil",
-  description: "",
-};
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow",
+});
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hanken",
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${outfit.className} ${ovo.className} antialiased 
-      leading-8 overflow-x-hidden`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${ovo.variable} ${barlow.variable} ${hanken.variable}`}
+    >
+      <body className="font-hanken antialiased leading-8">{children}</body>
     </html>
   );
 }
