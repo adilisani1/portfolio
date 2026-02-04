@@ -1,104 +1,3 @@
-// import React from 'react';
-// import { RiSendPlaneFill } from "react-icons/ri";
-// import { HiOutlineMail } from "react-icons/hi";
-// import { LuPhoneCall } from "react-icons/lu";
-// import { socialMedia } from '../../../assets/assets';
-
-
-// const Contact = () => {
-//   return (
-//       <div id='contact' className='w-full px-[6%] md:px-[12%] py-10 scroll-mt-20'>
-//           <h4 className='text-center mb-2 text-lg font-ovo'>Contact</h4>
-//           <h2 className='text-center text-5xl font-ovo mb-10'>Get in touch</h2>
-
-//           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-2">
-//               <div className="md:col-span-1 flex flex-col max-w-2xl">
-//                   <h3 className="mb-2 text-md font-ovo font-black">Connect with me !</h3>
-//                   <p className="md:text-[19.5px] font-ovo mb-8 ">
-//                       Feel free to reach out if you have any questions or need help with a project.
-//                   </p>
-//                   <div>
-//                       <div className='flex gap-3'>
-//                               <div className=' w-11 h-11 rounded-full
-//                           flex justify-center items-center bg-black/70' >
-//                               <HiOutlineMail className="text-white text-[20px]" />
-//                           </div>
-//                           <div>
-//                               <p className="text-sm font-ovo font-light leading-4">Email me:</p>
-//                               <a href="mailto:adil.isani1@gmail.com" className="text-[#1A1213] flex text-md gap-3 mb-3 font-semibold ">
-//                                   adil.isani1@gmail.com
-//                               </a>
-//                           </div>
-//                       </div>
-//                       <div className='flex gap-3'>
-//                           <div className=' w-11 h-11 rounded-full
-//                           flex justify-center items-center bg-black/70' >
-//                               <LuPhoneCall className=" text-white text-[18.5px]" />
-//                           </div>
-//                           <div>
-//                               <p className="text-sm font-ovo font-light leading-4">Contact:</p>
-//                               <a href="phone" className="text-black flex gap-3 font-semibold mb-3">
-//                                   +92 (321) 3427371
-//                               </a>
-//                           </div>
-//                       </div>
-//                   </div>
-
-//                       <div className="flex gap-3 mt-3 md:mb-5 mb-7">
-//                           {socialMedia.map((social, index) => (
-//                               <a key={index} href={social.url} target="_blank" rel="noopener noreferrer"
-//                                   className='flex items-center text-[20px] gap-2 font-ovo duration-500 transition-all hover:translate-y-1'>
-//                                   <span className='bg-black/70 rounded-4xl w-9 h-9 p-2.5 flex
-//                               justify-center items-center text-white '> {social.icon}</span>
-//                               </a>
-//                           ))}
-//                       </div>
-                
-//               </div>
-//               <div className="md:col-span-2 flex justify-center ">
-//                   <form className="md:p-3 rounded-4xl w-full max-w-[50rem] md:ml-auto">
-//                       <div className="grid grid-cols-2 mb-5 gap-5">
-//                           <input
-//                               className="flex-1 px-5 py-2 outline-none border-none bg-gray-200 rounded-xl"
-//                               type="email"
-//                               placeholder="Enter your email"
-//                               required
-//                           />
-//                           <input
-//                               className="flex-1 px-5 py-2 outline-none border-none bg-gray-200 rounded-xl"
-//                               type="text"
-//                               placeholder="Enter your name"
-//                               required
-//                           />
-//                       </div>
-//                       <textarea
-//                           className="w-full px-5 py-3 outline-none mb-5 flex-1 border-none bg-gray-200 rounded-xl"
-//                           rows="6"
-//                           placeholder="Enter your message"
-//                       ></textarea>
-//                       <div>
-//                           <button
-//                               type="submit"
-//                               className="md:px-8 md:py-3 px-5 py-2.5 w-max text-white flex items-center gap-2 font-ovo text-sm md:text-lg bg-black/80 justify-between rounded-xl cursor-pointer duration-500 buttons"
-//                           >
-//                               Submit Now
-//                               <span>
-//                                   <RiSendPlaneFill className="w-5 h-5" />
-//                               </span>
-//                           </button>
-//                       </div>
-//                   </form>
-//               </div>
-//           </div>
-
-
-
-//     </div >
-//   )
-// }
-
-// export default Contact
-
 
 
 "use client"
@@ -156,7 +55,6 @@ function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
-        // Simulate submission
         await new Promise((resolve) => setTimeout(resolve, 1500))
         console.log("Form submitted:", formData)
         setIsSubmitting(false)
@@ -176,7 +74,7 @@ function Contact() {
         >
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/5 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl" />
             </div>
 
@@ -192,7 +90,7 @@ function Contact() {
 
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
                         Let's Work{" "}
-                        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 bg-clip-text text-transparent">
                             Together
                         </span>
                     </h2>
@@ -223,7 +121,7 @@ function Contact() {
                                         />
                                     ),
                                     label: "Email",
-                                    value: "hello@muhammadadil.dev",
+                                    value: "adil.isani1@gmail.com",
                                 },
                                 {
                                     icon: (
@@ -262,7 +160,7 @@ function Contact() {
                                     key={index}
                                     className="group flex items-center gap-5 p-5 rounded-2xl bg-gradient-to-br from-[#1a1a2e]/90 to-[#16162a]/90 border border-purple-500/10 hover:border-purple-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/5"
                                 >
-                                    <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 group-hover:from-purple-500/30 group-hover:to-pink-500/20 transition-all duration-500">
+                                    <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/10 group-hover:from-purple-500/30 group-hover:to-purple-500/20 transition-all duration-500">
                                         <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             {item.icon}
                                         </svg>
@@ -279,18 +177,22 @@ function Contact() {
                             <h4 className="text-white font-semibold text-lg mb-5">Follow Me</h4>
                             <div className="flex gap-4">
                                 {[
-                                    { name: "GitHub", icon: GitHubIcon },
-                                    { name: "LinkedIn", icon: LinkedInIcon },
-                                    { name: "Twitter", icon: TwitterIcon },
-                                    { name: "Instagram", icon: InstagramIcon },
+                                    { name: "GitHub", icon: GitHubIcon, url: "https://github.com/adilisani1" },
+                                    { name: "LinkedIn", icon: LinkedInIcon, url: "https://www.linkedin.com/in/aadil-isani/" },
+                                    { name: "StackOverflow", icon: StackOverflowIcon, url: "https://stackoverflow.com/users/9246665/muhammad-adil" },
+                                    { name: "Behance", icon: BehanceIcon, url: "https://www.behance.net/adiisani" },
+                                    // { name: "Twitter", icon: TwitterIcon },
+                                    // { name: "Instagram", icon: InstagramIcon },
                                 ].map((social) => (
                                     <a
                                         key={social.name}
-                                        href="#"
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="group relative p-4 rounded-2xl bg-gradient-to-br from-[#1a1a2e]/90 to-[#16162a]/90 border border-purple-500/10 hover:border-purple-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/10 overflow-hidden"
                                         aria-label={social.name}
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/10 group-hover:to-pink-600/10 transition-all duration-500" />
+                                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/0 group-hover:from-purple-600/10 group-hover:to-purple-600/10 transition-all duration-500" />
                                         <social.icon className="relative w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
                                     </a>
                                 ))}
@@ -304,7 +206,7 @@ function Contact() {
                     >
                         {/* Form glow effect */}
                         <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
                         <form onSubmit={handleSubmit} className="relative space-y-7">
                             <div className="grid md:grid-cols-2 gap-6">
@@ -375,9 +277,9 @@ function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="group relative w-full py-5 px-8 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="group cursor-pointer relative w-full py-5 px-8 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <span className="relative flex items-center justify-center gap-3">
                                     {isSubmitting ? (
                                         <>
@@ -437,19 +339,26 @@ function LinkedInIcon({ className }) {
         </svg>
     )
 }
-
-function TwitterIcon({ className }) {
+function StackOverflowIcon({ className }) {
     return (
         <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            <path d="M17.48 20.52v-5.34h1.78v7.12H3.74v-7.12h1.78v5.34h11.96z" />
+            <path d="M7.33 14.41l.37-1.74 8.7 1.83-.37 1.74-8.7-1.83z" />
+            <path d="M8.48 10.32l.76-1.63 8.05 3.76-.76 1.63-8.05-3.76z" />
+            <path d="M10.69 6.56l1.16-1.38 6.81 5.75-1.16 1.38-6.81-5.75z" />
+            <path d="M14.38 3.48l1.5-.96 4.7 7.34-1.5.96-4.7-7.34z" />
+            <path d="M7.26 18.78h8.52v-1.78H7.26v1.78z" />
         </svg>
     )
 }
 
-function InstagramIcon({ className }) {
+
+function BehanceIcon({ className }) {
     return (
         <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            <path d="M9.62 11.41c.63-.32 1.12-.9 1.12-1.82 0-2.14-1.63-3.01-3.77-3.01H0v11.84h7.21c2.38 0 4.04-1.15 4.04-3.48 0-1.46-.8-2.36-1.63-2.53zM3.01 8.94h3.58c.82 0 1.34.35 1.34 1.15 0 .87-.52 1.22-1.34 1.22H3.01V8.94zm3.8 7.08H3.01v-2.58h3.8c1.05 0 1.63.44 1.63 1.31 0 1.01-.58 1.27-1.63 1.27z" />
+            <path d="M19.34 9.55c-3.01 0-4.66 2.1-4.66 4.71 0 2.73 1.56 4.71 4.81 4.71 2.14 0 3.65-1.01 4.21-2.9h-2.29c-.17.56-.78.99-1.86.99-1.31 0-2.06-.68-2.14-1.86h6.43c.09-3.11-1.51-5.65-4.5-5.65zm-1.89 3.86c.12-.96.78-1.79 1.98-1.79 1.15 0 1.79.64 1.86 1.79h-3.84z" />
+            <path d="M16.1 6.14h4.38v1.31H16.1V6.14z" />
         </svg>
     )
 }

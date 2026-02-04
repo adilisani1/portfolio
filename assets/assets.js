@@ -9,6 +9,8 @@ import profile_img from "./profile-image.png";
 import about_profile_img from "./profile-img.jpg";
 import hand_icon from "./hand-icon.png";
 import shape_img from "./shape-one.png";
+
+// skills icons
 import react_icon from "./react.svg";
 import adobe_xd from "./xd.png";
 import header_bg_color_two from "./bg-three.png";
@@ -17,14 +19,17 @@ import js_icon from "./js.png";
 import psd_icon from "./psd.png";
 import word_press_two from "./wp.svg";
 import next_js from "./nextjs.png";
+import next_js_white from "./nextjs-white.png";
 import tailwind from "./tail.png";
 import figma from "./figma.png";
 import wp from "./skill-3.png";
 import bootsrap from "./bootstrap.png";
-
+import node_js from "./node-js-icon.png";
+import javascript_icon from "./javascript.png";
 import ecommerce_image from "./ecommerce-image.jpg";
-
+import ad_logo from "./ad-logo.png";
 export const assets = {
+  ad_logo,
   arrow_light,
   header_bg_color,
   arrow_dark,
@@ -32,6 +37,7 @@ export const assets = {
   profile_img,
   about_profile_img,
   hand_icon,
+
   react_icon,
   adobe_xd,
   web_development_icon,
@@ -45,7 +51,9 @@ export const assets = {
   bootsrap,
   js_icon,
   psd_icon,
-
+  next_js_white,
+  node_js,
+  javascript_icon,
   // portfolio images
   ecommerce_image,
 };

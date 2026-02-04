@@ -15,10 +15,30 @@
   --color-blue-22: #31a8ff;
 }
 
+.light {
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-accent: #000000;
+}
+
+.dark {
+  --color-background: #000000;
+  --color-text: #ffffff;
+  --color-primary: #ffffff;
+  --color-secondary: #ffffff;
+  --color-accent: #ffffff;
+}
 
 html {
   overscroll-behavior: none;
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 

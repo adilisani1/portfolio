@@ -5,6 +5,7 @@ import {
   Hanken_Grotesk,
 } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -36,7 +37,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${outfit.variable} ${ovo.variable} ${barlow.variable} ${hanken.variable}`}
     >
-      <body className="font-hanken antialiased leading-8">{children}</body>
+      <body className="font-hanken antialiased leading-8">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
