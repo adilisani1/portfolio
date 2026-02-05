@@ -28,6 +28,20 @@ import node_js from "./node-js-icon.png";
 import javascript_icon from "./javascript.png";
 import ecommerce_image from "./ecommerce-image.jpg";
 import ad_logo from "./ad-logo.png";
+
+
+
+
+// projects images
+import kavehome from "./projects/kavehome-file.jpg"
+import happycart from "./projects/happycart-file.jpg"
+import portfolio from "./projects/portfolio-file.jpg"
+import domusmeralda from "./projects/domusmeralda-file.jpg"
+import appointment_booking from "./projects/appointmentbooking-file.jpg"
+
+
+
+
 export const assets = {
   ad_logo,
   arrow_light,
@@ -56,7 +70,10 @@ export const assets = {
   javascript_icon,
   // portfolio images
   ecommerce_image,
+
+  // projects images
 };
+
 
 export const toolsIcon = [
   { icon: assets.react_icon, name: "React", color: "bg-blue-600/20" },
@@ -99,6 +116,17 @@ export const servicesData = [
 export const portfolioData = [
   {
     id: 1,
+    title: "Kavehome",
+    tag: "website",
+    category: "Website",
+    link: "https://kavehome.com/",
+    imgSrc: assets.kavehome,
+    width: 650,
+    height: 800,
+    alt: "Kavehome Project",
+  },
+  {
+    id: 2,
     title: "Ecommerce",
     tag: "website",
     category: "Website",
@@ -109,7 +137,7 @@ export const portfolioData = [
     alt: "Ecommerce Project",
   },
   {
-    id: 2,
+    id: 3,
     title: "Weather App",
     tag: "Website",
     category: "Website",
@@ -120,7 +148,7 @@ export const portfolioData = [
     alt: "Weather Project",
   },
   {
-    id: 3,
+    id: 4,
     title: "Food App",
     tag: "Website",
     category: "Website",
@@ -131,7 +159,7 @@ export const portfolioData = [
     alt: "Food App Project",
   },
   {
-    id: 4,
+    id: 5, // more app
     title: "Uniswap Replica",
     tag: "replica",
     category: "Replica",
@@ -143,7 +171,7 @@ export const portfolioData = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Unfontanero",
     tag: "Website",
     category: "Website",
@@ -212,6 +240,43 @@ export const portfolioData = [
   //   alt: "factor linens",
   // },
 ];
+
+
+export const projects = [
+  {
+    title: "KaveHome | Furniture E-commerce Clone",
+    description:
+      "Headless WordPress Website with Next.js • JavaScript • GraphQL • GSAP • Tailwind CSS",
+    link: "https://kavehome-replica.vercel.app/",
+    image: kavehome,
+    gradient: "from-purple-600 to-purple-500",
+  },
+  {
+    title: "HappyCart | E-commerce Website",
+    description: "React • Tailwind CSS • Node.js • ExpressJS • MongoDB",
+    link: "https://happycart-frontend-adilisani.vercel.app/",
+    image: happycart,
+    gradient: "from-purple-600 to-purple-500",
+  },
+
+  {
+    title: "Online Appointment Booking Application",
+    description: "Next.js • Node.js • Tailwind CSS • MongoDB",
+    link: "https://portfolio-mu-six-24.vercel.app/",
+    image: appointment_booking,
+    gradient: "from-purple-600 to-purple-500",
+  },
+
+  
+  {
+    title: "Full Stack Apartment Booking Web Application ",
+    description: "WordPress • PHP",
+    link: "https://dev.domusmeralda.com/",
+    image: domusmeralda,
+    gradient: "from-purple-600 to-purple-500",
+  },
+];
+
 
 export const socialMedia = [
   {

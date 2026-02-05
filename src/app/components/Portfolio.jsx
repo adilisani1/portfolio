@@ -9,36 +9,7 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger)
 }
 
-const projects = [
-    {
-        title: "Next.js Todo App",
-        description: "Next.js • TypeScript • Tailwind CSS",
-        link: "#",
-        image: "/todo-app-dashboard-interface.jpg",
-        gradient: "from-purple-600 to-purple-500",
-    },
-    {
-        title: "E-commerce Platform",
-        description: "React • Node.js • MongoDB",
-        link: "#",
-        image: "/happycart-wbsite.png",
-        gradient: "from-purple-600 to-purple-500",
-    },
-    {
-        title: "Portfolio Website",
-        description: "Next.js • Tailwind • GSAP",
-        link: "#",
-        image: "/portfolio-design-showcase.jpg",
-        gradient: "from-purple-600 to-purple-500",
-    },
-    {
-        title: "Dashboard Analytics",
-        description: "React • D3.js • Redux",
-        link: "#",
-        image: "/analytics-dashboard-charts.png",
-        gradient: "from-purple-600 to-purple-500",
-    },
-]
+import { projects } from "../../../assets/assets"
 
 function Portfolio({ viewMoreText = "View Project" }) {
     const component = useRef(null)
@@ -212,7 +183,7 @@ function Portfolio({ viewMoreText = "View Project" }) {
                 <ul ref={component} className="relative" onMouseLeave={onMouseLeave}>
                     {projects.map((project, index) => (
                         <li key={index} ref={(el) => (itemsRef.current[index] = el)} className="opacity-0 group">
-                            <a href={project.link} className="block" onMouseEnter={(e) => onMouseEnter(index, e)}>
+                            <a href={project.link} target="_blank" className="block" onMouseEnter={(e) => onMouseEnter(index, e)}>
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 md:px-12 py-8 border-t border-purple-900/30 hover:bg-purple-950/20 transition-all duration-300">
                                     <div className="flex-1">
                                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all">
@@ -247,8 +218,8 @@ function Portfolio({ viewMoreText = "View Project" }) {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-purple-900/40 backdrop-blur-sm " />
                 {currentItem !== null && projects[currentItem]?.image && (
                     <img
-                        key={`project-${currentItem}-${projects[currentItem].image}`}
-                        src={projects[currentItem].image || "/placeholder.svg"}
+                        key={`project-${currentItem}-${typeof projects[currentItem].image === "string" ? projects[currentItem].image : projects[currentItem].image?.src}`}
+                        src={typeof projects[currentItem].image === "string" ? projects[currentItem].image : projects[currentItem].image?.src || "/placeholder.svg"}
                         alt={projects[currentItem]?.title || "Project preview"}
                         className="relative  w-full h-full object-cover"
                         loading="eager"

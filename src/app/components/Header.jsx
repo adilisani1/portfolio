@@ -44,11 +44,11 @@ function Hero() {
             <div className="max-w-4xl mx-auto text-center">
                 <div ref={imageRef} className="mb-8 flex justify-center">
                     <div className="relative">
-                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-[0_0_40px_rgba(139,92,246,0.3)]">
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 bg-purple-500/10 shadow-[0_0_40px_rgba(139,92,246,0.3)]">
                             <img
-                                src="/professional-developer-portrait.png"
+                                src="/profile.png"
                                 alt="Muhammad Adil"
-                                className="w-full h-full object-cover"
+                                className="w-full h-[175px] object-cover aspect-square"
                             />
                         </div>
                         <div className="absolute inset-0 rounded-full bg-gradient-to-b from-purple-500/20 to-transparent blur-xl -z-10" />

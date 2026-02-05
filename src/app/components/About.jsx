@@ -82,7 +82,7 @@ function About() {
                 <div ref={textRef} className="mb-20">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 mb-8">
                         <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                        <span className="text-purple-300 text-sm font-medium tracking-wide">ABOUT ME</span>
+                        <span className="text-purple-400 text-sm font-medium tracking-wide">ABOUT ME</span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
@@ -94,12 +94,12 @@ function About() {
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-5xl">
-                        <p className="text-gray-300 text-lg leading-relaxed">
+                        <p className="text-gray-400 text-lg leading-relaxed">
                             I'm a <span className="font-medium">MERN stack developer</span> who loves working with
                             React.js, Next.js, React Native, and WordPress. I've spent the last few years diving deep into front-end
                             development, building clean, fast, and user-friendly websites and apps.
                         </p>
-                        <p className="text-gray-300 text-lg leading-relaxed">
+                        <p className="text-gray-400 text-lg leading-relaxed">
                             Living with <span className=" font-medium">Muscular Dystrophy</span> and being a wheelchair user
                             for the past 10 years has not only shaped my abilities but also fueled my drive to create and break new
                             ground. I believe that{" "}
@@ -113,7 +113,7 @@ function About() {
                         <svg className="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
-                        <span className="text-purple-300 text-sm font-medium tracking-wide">MY SKILLS</span>
+                        <span className="text-purple-400 text-sm font-medium tracking-wide">MY SKILLS</span>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -133,7 +133,7 @@ function About() {
                                             className="object-contain"
                                         />
                                     </div>
-                                    <span className={`text-sm font-medium text-center transition-colors duration-300 ${theme === "light" ? "text-black group-hover:text-gray-600" : "text-white group-hover:text-purple-300"}`}>
+                                    <span className={`text-sm font-medium text-center transition-colors duration-300 ${theme === "light" ? "text-black group-hover:text-gray-600" : "text-white group-hover:text-purple-400"}`}>
                                         {skill.name}
                                     </span>
                                 </div>

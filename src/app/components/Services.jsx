@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Code, Palette, Smartphone, Fingerprint, MessageCircle } from "lucide-react"
+import { ThemeContext } from "../context/ThemeContext"
 
 const services = [
     {
@@ -46,6 +47,7 @@ const services = [
 function Services() {
     const containerRef = useRef(null)
     const cardsRef = useRef(null)
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
@@ -78,22 +80,22 @@ function Services() {
         <section
             ref={containerRef}
             className="min-h-screen relative "
-            style={{ background: "linear-gradient(180deg, #0a0a12 0%, #0d0d18 100%)" }}
+            // style={{ background: "linear-gradient(180deg, #0a0a12 0%, #0d0d18 100%)" }}
         >
-            <div className="flex flex-col lg:flex-row min-h-screen">
-                <div className="lg:w-1/2 lg:sticky lg:top-0 lg:h-screen flex items-center justify-center p-8 lg:p-16">
-                    <div className="max-w-md">
+            <div className="flex container mx-auto flex-col lg:flex-row min-h-screen gap-10">
+                <div className="lg:sticky lg:w-1/2 lg:top-0 lg:h-screen flex items-center lg:justify-center p-8 lg:p-16 ">
+                    <div className="">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 mb-8">
                             <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                            <span className="text-purple-300 text-sm font-medium tracking-wide">SERVICES</span>
+                            <span className="text-purple-400 text-sm font-medium tracking-wide">SERVICES</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none tracking-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight">
                             My Services
                             <span className="block bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 bg-clip-text text-transparent mt-2">
                                 are
                             </span>
                         </h2>
-                        <p className="mt-8 text-lg text-gray-300 leading-relaxed">
+                        <p className="mt-8 text-lg text-gray-400 leading-relaxed">
                             Scroll down to explore what I can do for you. Each service is crafted with precision and passion.
                         </p>
                         <div className="mt-12 flex items-center gap-4">
@@ -120,7 +122,7 @@ function Services() {
                                     }}
                                 >
                                     <div
-                                        className={`group relative rounded-2xl p-8 lg:p-10 min-h-[320px] lg:min-h-[400px] flex flex-col justify-between bg-[#1a1a2e]/80 border border-purple-900/30 hover:border-purple-500/50 backdrop-blur-sm shadow-2xl shadow-black/30 overflow-hidden transition-all duration-500`}
+                                        className={`group relative rounded-2xl p-8 lg:p-10 min-h-[320px] lg:min-h-[400px] flex flex-col justify-between ${theme === "dark" ? "bg-[#1a1a2e]/80" : "bg-gray-200/30"} border border-purple-900/30 hover:border-purple-500/50 backdrop-blur-sm shadow-2xl shadow-black/30 overflow-hidden transition-all duration-500`}
                                     >
                                         <div
                                             className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${service.gradient} opacity-50`}
@@ -141,11 +143,11 @@ function Services() {
                                                 </div>
                                                 <span className="text-gray-500 text-sm font-mono tracking-wider">0{service.id}</span>
                                             </div>
-                                            <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight">{service.title}</h3>
+                                            <h3 className="text-2xl lg:text-3xl font-bold  tracking-tight">{service.title}</h3>
                                         </div>
 
                                         <div className="relative z-10">
-                                            <p className="text-gray-300 text-base lg:text-lg leading-relaxed max-w-sm">
+                                            <p className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-sm">
                                                 {service.description}
                                             </p>
                                             <button

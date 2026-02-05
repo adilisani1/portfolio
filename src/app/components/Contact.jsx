@@ -79,7 +79,7 @@ function Contact() {
             </div>
 
             <div className="container mx-auto relative z-10  px-6 md:px-12 pt-24 pb-12 ">
-                <div className="text-center mb-20">
+                <div className="text-left mb-20">
                     <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-purple-500/30 bg-purple-500/10 mb-10">
                         <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
@@ -94,7 +94,7 @@ function Contact() {
                             Together
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl text-left leading-relaxed">
                         Have a project in mind? Let's discuss how we can bring your ideas to life and create something extraordinary
                         together.
                     </p>
