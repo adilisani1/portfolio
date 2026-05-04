@@ -75,8 +75,7 @@ function Navbar() {
 
     return (
         <nav
-            className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/90 backdrop-blur-md py-3" : "bg-transparent py-5"
-                }`}
+            className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? `${theme === "dark" ? "bg-primary/90" : "bg-white/90"} backdrop-blur-md py-3` : "bg-transparent py-5"}`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 <div className="flex-1">
@@ -109,65 +108,25 @@ function Navbar() {
                             {link.name}
                         </button>
                     ))}
-                    {/* <div className="flex items-center gap-3">
-                        <button
-                            onClick={toggleTheme}
-                            className={`nav-item cursor-pointer w-10 h-10 rounded-full border border-secondary/30 flex items-center justify-center hover:bg-dimBlue hover:border-secondary/50 transition-all duration-300 group ${theme === "dark" ? "bg-dimBlue" : "bg-gray-200/30"}`}
-                            aria-label="Toggle theme"
-                        >
-                            {theme === "dark" ? (
-                                <svg
-                                    className={`w-5 h-5  group-hover:text-yellow-400 transition-colors ${theme === "light" ? "text-black" : "text-white"}`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <circle cx="12" cy="12" r="5" strokeWidth="2" />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeWidth="2"
-                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-                                    />
-                                </svg>
-                            ) : (
-                                <svg
-                                        className={`w-5 h-5  transition-colors ${theme === "light" ? "text-black" : "text-white"}`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                    />
-                                </svg>
-                            )}
-                        </button>
-
-                        <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="nav-item cursor-pointer md:hidden w-10 h-10 rounded-full bg-dimBlue border border-secondary/30 flex items-center justify-center hover:bg-secondary/20 transition-all duration-300"
-                            aria-label="Toggle menu"
-                        >
-                            <div className="flex flex-col gap-1.5">
-                                <span
-                                    className={`w-5 h-0.5 bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                                        }`}
-                                />
-                                <span
-                                    className={`w-5 h-0.5 bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
-                                />
-                                <span
-                                    className={`w-5 h-0.5 bg-gray-300 transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                                        }`}
-                                />
-                            </div>
-                        </button>
-                    </div> */}
                 </div>
-                <div className="flex-1 flex justify-end items-center">
+                <div className="flex-1 flex justify-end items-center gap-3">
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className={`nav-item hidden md:inline-flex cursor-pointer w-10 h-10 rounded-full border border-secondary/30 items-center justify-center hover:border-secondary/60 transition-all duration-300 ${theme === "dark" ? "bg-dimBlue text-white" : "bg-secondary/10 text-primary"}`}
+                        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                    >
+                        {theme === "dark" ? (
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4" strokeWidth="2" />
+                                <path strokeLinecap="round" strokeWidth="2" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                            </svg>
+                        ) : (
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        )}
+                    </button>
                     <button
                         type="button"
                         onClick={() => scrollToSection("#contact")}
@@ -208,7 +167,7 @@ function Navbar() {
 
             {/* Mobile menu */}
             <div
-                className={`md:hidden absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-md border-b border-secondary/20 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-[480px] py-4" : "max-h-0 py-0"}`}
+                className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-secondary/20 transition-all duration-300 overflow-hidden ${theme === "dark" ? "bg-primary/95" : "bg-white/95"} ${isMobileMenuOpen ? "max-h-[640px] py-4" : "max-h-0 py-0"}`}
             >
                 <div className="flex flex-col items-stretch gap-1 px-6">
                     {navLinks.map((link) => (
@@ -221,6 +180,24 @@ function Navbar() {
                             {link.name}
                         </button>
                     ))}
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className={`mt-2 w-full py-3 px-4 inline-flex items-center justify-between rounded-lg border border-secondary/20 hover:border-secondary/50 transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white" : "text-black"}`}
+                        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                    >
+                        <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+                        {theme === "dark" ? (
+                            <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4" strokeWidth="2" />
+                                <path strokeLinecap="round" strokeWidth="2" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                            </svg>
+                        ) : (
+                            <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        )}
+                    </button>
                     <button
                         type="button"
                         onClick={() => scrollToSection("#contact")}

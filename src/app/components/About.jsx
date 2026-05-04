@@ -232,12 +232,12 @@ function About() {
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-5xl">
-                        <p className="text-dimWhite text-lg leading-relaxed">
+                        <p className=" text-lg leading-relaxed">
                             I'm a <span className="font-medium">MERN stack developer</span> who loves working with
                             React.js, Next.js, React Native, and WordPress. I've spent the last few years diving deep into front-end
                             development, building clean, fast, and user-friendly websites and apps.
                         </p>
-                        <p className="text-dimWhite text-lg leading-relaxed">
+                        <p className=" text-lg leading-relaxed">
                             Living with <span className="font-medium">Muscular Dystrophy</span> and being a wheelchair user
                             for the past 10 years has not only shaped my abilities but also fueled my drive to create and break new
                             ground. I believe that{" "}

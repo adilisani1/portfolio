@@ -93,7 +93,7 @@ function Services() {
                                 are
                             </span>
                         </h2>
-                        <p className="mt-8 text-lg text-dimWhite leading-relaxed">
+                        <p className="mt-8 text-lg  leading-relaxed">
                             Scroll down to explore what I can do for you. Each service is crafted with precision and passion.
                         </p>
                         <div className="mt-12 flex items-center gap-4">
@@ -139,13 +139,13 @@ function Services() {
                                                 >
                                                     <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
                                                 </div>
-                                                <span className="text-dimWhite text-sm font-mono tracking-wider opacity-70">0{service.id}</span>
+                                                <span className=" text-sm font-mono tracking-wider opacity-70">0{service.id}</span>
                                             </div>
                                             <h3 className="text-2xl lg:text-3xl font-bold  tracking-tight">{service.title}</h3>
                                         </div>
 
                                         <div className="relative z-10">
-                                            <p className="text-dimWhite text-base lg:text-lg leading-relaxed max-w-sm">
+                                            <p className="text-base lg:text-lg leading-relaxed max-w-sm">
                                                 {service.description}
                                             </p>
                                             <p

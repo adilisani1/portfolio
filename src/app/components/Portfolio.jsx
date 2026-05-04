@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useLayoutEffect } from "react"
+import { useRef, useState, useLayoutEffect, useContext } from "react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -11,6 +11,7 @@ if (typeof window !== "undefined") {
 }
 
 import { projects } from "../../../assets/assets"
+import { ThemeContext } from "../context/ThemeContext"
 
 function Portfolio({
     viewMoreText = "View Project",
@@ -21,6 +22,7 @@ function Portfolio({
     headingHighlight = "Projects",
     description = "Showcasing my recent work in web development, creating digital experiences that combine functionality with stunning design.",
 }) {
+    const { theme } = useContext(ThemeContext)
     const visibleProjects = typeof limit === "number" ? projects.slice(0, limit) : projects
     const component = useRef(null)
     const itemsRef = useRef([])
@@ -202,7 +204,7 @@ function Portfolio({
                                     </div>
 
                                     <div className="flex items-center gap-2  font-semibold group-hover:gap-3 transition-all duration-300">
-                                        <span className="text-sm md:text-base">{viewMoreText}</span>
+                                        <span className={`text-sm md:text-base px-3 py-1 rounded-full transition-colors duration-300 ${theme === "light" ? "bg-secondary/10 text-secondary" : ""}`}>{viewMoreText}</span>
                                         <div
                                             className="w-8 h-8 rounded-full bg-gradient-to-tl from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                                         >
@@ -219,7 +221,11 @@ function Portfolio({
                     <div className="flex justify-center px-6 md:px-12 py-12 border-t border-secondary/20">
                         <Link
                             href="/portfolio"
-                            className="group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full bg-secondary text-primary hover:bg-cyan-300 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)]"
+                            className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full bg-secondary transition-all duration-300 ${
+                                theme === "light"
+                                    ? "text-white hover:bg-[#0e7490] hover:shadow-[0_0_30px_rgba(8,145,178,0.35)]"
+                                    : "text-primary hover:bg-cyan-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)]"
+                            }`}
                         >
                             View All Projects
                             <svg

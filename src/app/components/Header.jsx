@@ -91,7 +91,7 @@ function Hero() {
 
                 <p
                     ref={descRef}
-                    className="text-dimWhite text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-hanken"
+                    className=" text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-hanken"
                 >
                     Where passion meets precision: Designing seamless digital experiences with{" "}
                     <span className="text-secondary font-medium">React JS, Next JS, React Native, and WordPress</span>, while
@@ -116,7 +116,7 @@ function Hero() {
                 </div>
 
                 <div className="mt-14 flex justify-center">
-                    <div className="flex flex-col items-center gap-2 text-dimWhite">
+                    <div className="flex flex-col items-center gap-2 ">
                         <span className="text-xs uppercase tracking-widest">Scroll</span>
                         <div className="w-6 h-10 rounded-full border-2 border-secondary/40 flex justify-center pt-2">
                             <div className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" />
