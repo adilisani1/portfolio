@@ -70,7 +70,7 @@ function Contact() {
         <section
             id="contact"
             ref={sectionRef}
-            className="min-h-screen py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden"
+            className="min-h-screen py-14 md:py-20 px-1 md:px-12 lg:px-20 relative overflow-hidden"
             // style={{ background: "linear-gradient(180deg, #00040f 0%, #00040f 100%)" }}
         >
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
