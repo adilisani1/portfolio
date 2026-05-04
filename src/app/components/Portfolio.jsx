@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useLayoutEffect } from "react"
+import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { MdArrowOutward } from "react-icons/md"
@@ -11,7 +12,16 @@ if (typeof window !== "undefined") {
 
 import { projects } from "../../../assets/assets"
 
-function Portfolio({ viewMoreText = "View Project" }) {
+function Portfolio({
+    viewMoreText = "View Project",
+    showViewAll = true,
+    limit,
+    eyebrow = "FEATURED WORKS",
+    headingPrefix = "Latest",
+    headingHighlight = "Projects",
+    description = "Showcasing my recent work in web development, creating digital experiences that combine functionality with stunning design.",
+}) {
+    const visibleProjects = typeof limit === "number" ? projects.slice(0, limit) : projects
     const component = useRef(null)
     const itemsRef = useRef([])
     const revealRef = useRef(null)
@@ -90,7 +100,7 @@ function Portfolio({ viewMoreText = "View Project" }) {
         if (!revealRef.current) return
 
         if (currentItem !== null) {
-            const project = projects[currentItem]
+            const project = visibleProjects[currentItem]
             if (!project) {
                 return
             }
@@ -159,43 +169,44 @@ function Portfolio({ viewMoreText = "View Project" }) {
     }
 
     return (
-        <section id="portfolio" className="w-full bg-gradient-to-b from-[#0a0a12] to-[#0d0d18] relative overflow-x-hidden">
+        <section id="portfolio" className="w-full py-20 md:py-28 relative overflow-x-hidden">
             <div className="container mx-auto">
-                <div className="relative px-6 md:px-12 pt-24 pb-12">
+                <div className="relative px-6 md:px-12 pb-12">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-purple-500"></div>
-                        <span className="text-sm font-semibold text-purple-400 uppercase tracking-widest">FEATURED WORKS</span>
+                        <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                        <span className="text-sm font-semibold text-secondary uppercase tracking-widest">{eyebrow}</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-                        Latest{" "}
-                        <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 bg-clip-text text-transparent">
-                            Projects
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4">
+                        {headingPrefix}{" "}
+                        <span className="bg-gradient-to-r from-secondary via-cyan-300 to-secondary bg-clip-text text-transparent">
+                            {headingHighlight}
                         </span>
                     </h2>
 
                     <p className="text-gray-400 text-lg max-w-2xl">
-                        Showcasing my recent work in web development, creating digital experiences that combine functionality with
-                        stunning design.
+                        {description}
                     </p>
                 </div>
 
                 <ul ref={component} className="relative" onMouseLeave={onMouseLeave}>
-                    {projects.map((project, index) => (
+                    {visibleProjects.map((project, index) => (
                         <li key={index} ref={(el) => (itemsRef.current[index] = el)} className="opacity-0 group">
                             <a href={project.link} target="_blank" className="block" onMouseEnter={(e) => onMouseEnter(index, e)}>
-                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 md:px-12 py-8 border-t border-purple-900/30 hover:bg-purple-950/20 transition-all duration-300">
+                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 md:px-12 py-8 border-t border-secondary/20 hover:bg-dimBlue transition-all duration-300">
                                     <div className="flex-1">
-                                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all">
+                                        <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-secondary group-hover:to-secondary group-hover:bg-clip-text transition-all">
                                             {project.title}
                                         </h3>
                                         <p className="text-gray-400 text-sm md:text-base">{project.description}</p>
                                     </div>
 
-                                    <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all duration-300">
+                                    <div className="flex items-center gap-2  font-semibold group-hover:gap-3 transition-all duration-300">
                                         <span className="text-sm md:text-base">{viewMoreText}</span>
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                            <MdArrowOutward className="text-lg" />
+                                        <div
+                                            className="w-8 h-8 rounded-full bg-gradient-to-tl from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                        >
+                                            <MdArrowOutward className="text-lg text-white" />
                                         </div>
                                     </div>
                                 </div>
@@ -203,11 +214,30 @@ function Portfolio({ viewMoreText = "View Project" }) {
                         </li>
                     ))}
                 </ul>
+
+                {showViewAll && (
+                    <div className="flex justify-center px-6 md:px-12 py-12 border-t border-secondary/20">
+                        <Link
+                            href="/portfolio"
+                            className="group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full bg-secondary text-primary hover:bg-cyan-300 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)]"
+                        >
+                            View All Projects
+                            <svg
+                                className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </Link>
+                    </div>
+                )}
             </div>
 
             <div
                 ref={revealRef}
-                className="pointer-events-none fixed z-[9999] rounded-2xl shadow-2xl border-2 border-purple-500/50 overflow-hidden"
+                className="pointer-events-none fixed z-[9999] rounded-2xl shadow-2xl border-2 border-secondary/50 overflow-hidden"
                 style={{
                     width: "220px",
                     height: "320px",
@@ -215,16 +245,16 @@ function Portfolio({ viewMoreText = "View Project" }) {
                     top: "0px",
                 }}
             >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-purple-900/40 backdrop-blur-sm " />
-                {currentItem !== null && projects[currentItem]?.image && (
+                <div className="absolute inset-0 bg-dimBlue backdrop-blur-sm" />
+                {currentItem !== null && visibleProjects[currentItem]?.image && (
                     <img
-                        key={`project-${currentItem}-${typeof projects[currentItem].image === "string" ? projects[currentItem].image : projects[currentItem].image?.src}`}
-                        src={typeof projects[currentItem].image === "string" ? projects[currentItem].image : projects[currentItem].image?.src || "/placeholder.svg"}
-                        alt={projects[currentItem]?.title || "Project preview"}
+                        key={`project-${currentItem}-${typeof visibleProjects[currentItem].image === "string" ? visibleProjects[currentItem].image : visibleProjects[currentItem].image?.src}`}
+                        src={typeof visibleProjects[currentItem].image === "string" ? visibleProjects[currentItem].image : visibleProjects[currentItem].image?.src || "/placeholder.svg"}
+                        alt={visibleProjects[currentItem]?.title || "Project preview"}
                         className="relative  w-full h-full object-cover"
                         loading="eager"
                         onError={(e) => {
-                            console.error("Image failed to load:", projects[currentItem]?.image)
+                            console.error("Image failed to load:", visibleProjects[currentItem]?.image)
                             e.currentTarget.onerror = null
                             e.currentTarget.src =
                                 "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='320'%3E%3Crect fill='%23334155' width='220' height='320'/%3E%3Ctext fill='%2394a3b8' fontFamily='sans-serif' fontSize='14' x='50%25' y='50%25' textAnchor='middle' dominantBaseline='middle'%3ENo image%3C/text%3E%3C/svg%3E"

@@ -2,13 +2,14 @@
 
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
-
+import { ThemeContext } from "../context/ThemeContext"
 function Contact() {
+    const { theme } = useContext(ThemeContext)
     const sectionRef = useRef(null)
     const formRef = useRef(null)
     const infoRef = useRef(null)
@@ -70,27 +71,27 @@ function Contact() {
             id="contact"
             ref={sectionRef}
             className="min-h-screen py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden"
-            style={{ background: "linear-gradient(180deg, #0a0a12 0%, #0d0d18 100%)" }}
+            // style={{ background: "linear-gradient(180deg, #00040f 0%, #00040f 100%)" }}
         >
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/5 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl" />
+                <div className="absolute top-20 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-dimBlue rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl" />
             </div>
 
             <div className="container mx-auto relative z-10  px-6 md:px-12 pt-24 pb-12 ">
                 <div className="text-left mb-20">
-                    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-purple-500/30 bg-purple-500/10 mb-10">
+                    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-secondary/40 bg-dimBlue mb-10">
                         <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-400" />
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
                         </span>
-                        <span className="text-purple-300 text-sm font-medium tracking-wider uppercase">Get In Touch</span>
+                        <span className="text-secondary text-sm font-medium tracking-wider uppercase">Get In Touch</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight">
                         Let's Work{" "}
-                        <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-secondary via-cyan-300 to-secondary bg-clip-text text-transparent">
                             Together
                         </span>
                     </h2>
@@ -103,7 +104,7 @@ function Contact() {
                 <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
                     <div ref={infoRef} className="lg:col-span-2 space-y-10">
                         <div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-5">Contact Information</h3>
+                            <h3 className="text-2xl md:text-3xl font-bold  mb-5">Contact Information</h3>
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 Feel free to reach out for collaborations, opportunities, or just a friendly chat about web development.
                             </p>
@@ -158,23 +159,23 @@ function Contact() {
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    className="group flex items-center gap-5 p-5 rounded-2xl bg-gradient-to-br from-[#1a1a2e]/90 to-[#16162a]/90 border border-purple-500/10 hover:border-purple-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/5"
+                                    className="group flex items-center gap-5 p-5 rounded-2xl bg-dimBlue border border-secondary/20 hover:border-secondary/50 transition-all duration-500 hover:shadow-lg hover:shadow-secondary/10"
                                 >
-                                    <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/10 group-hover:from-purple-500/30 group-hover:to-purple-500/20 transition-all duration-500">
-                                        <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="p-4 rounded-2xl bg-secondary/20 group-hover:bg-secondary/30 transition-all duration-500">
+                                        <svg className="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             {item.icon}
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500 text-sm font-medium mb-1">{item.label}</p>
-                                        <p className="text-white font-semibold text-lg">{item.value}</p>
+                                        <p className="text-gray-400 text-sm font-medium mb-1 opacity-80">{item.label}</p>
+                                        <p className=" font-semibold text-lg">{item.value}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
 
                         <div className="pt-4">
-                            <h4 className="text-white font-semibold text-lg mb-5">Follow Me</h4>
+                            <h4 className=" font-semibold text-lg mb-5">Follow Me</h4>
                             <div className="flex gap-4">
                                 {[
                                     { name: "GitHub", icon: GitHubIcon, url: "https://github.com/adilisani1" },
@@ -189,11 +190,11 @@ function Contact() {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group relative p-4 rounded-2xl bg-gradient-to-br from-[#1a1a2e]/90 to-[#16162a]/90 border border-purple-500/10 hover:border-purple-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/10 overflow-hidden"
+                                        className="group relative p-4 rounded-2xl bg-dimBlue border border-secondary/20 hover:border-secondary/50 transition-all duration-500 hover:shadow-lg hover:shadow-secondary/10 overflow-hidden"
                                         aria-label={social.name}
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-purple-600/0 group-hover:from-purple-600/10 group-hover:to-purple-600/10 transition-all duration-500" />
-                                        <social.icon className="relative w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                                        <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/10 transition-all duration-500" />
+                                        <social.icon className="relative w-5 h-5 text-secondary group-hover:text-secondary transition-colors duration-300" />
                                     </a>
                                 ))}
                             </div>
@@ -202,16 +203,16 @@ function Contact() {
 
                     <div
                         ref={formRef}
-                        className="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-[#1a1a2e]/80 to-[#14142a]/80 border border-purple-500/10 backdrop-blur-xl shadow-2xl shadow-purple-500/5 relative overflow-hidden"
+                        className="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-dimBlue border border-secondary/20 backdrop-blur-xl shadow-2xl shadow-secondary/10 relative overflow-hidden"
                     >
                         {/* Form glow effect */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
                         <form onSubmit={handleSubmit} className="relative space-y-7">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="name" className="block text-gray-300 text-sm font-semibold">
+                                    <label htmlFor="name" className="block text-gray-400 text-sm font-semibold">
                                         Your Name
                                     </label>
                                     <input
@@ -221,12 +222,12 @@ function Contact() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="John Doe"
-                                        className="w-full px-5 py-4 rounded-xl bg-[#0d0d18]/80 border border-purple-500/20 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all duration-300 text-base"
+                                        className={`w-full px-5 py-4 rounded-xl bg-dimBlue border border-secondary/30 ${theme === "dark" ? "text-gray-400 bg-primary" : "text-gray-600 bg-dimBlue"} placeholder-gray-500 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 text-base`}
                                         required
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="email" className="block text-gray-300 text-sm font-semibold">
+                                    <label htmlFor="email" className="block text-gray-400 text-sm font-semibold">
                                         Your Email
                                     </label>
                                     <input
@@ -236,14 +237,14 @@ function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="john@example.com"
-                                        className="w-full px-5 py-4 rounded-xl bg-[#0d0d18]/80 border border-purple-500/20 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all duration-300 text-base"
+                                        className={`w-full px-5 py-4 rounded-xl bg-dimBlue border border-secondary/30 ${theme === "dark" ? "text-gray-400 bg-primary" : "text-gray-600 bg-dimBlue"} placeholder-gray-500 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 text-base`}
                                         required
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="subject" className="block text-gray-300 text-sm font-semibold">
+                                <label htmlFor="subject" className="block text-gray-400 text-sm font-semibold">
                                     Subject
                                 </label>
                                 <input
@@ -253,13 +254,13 @@ function Contact() {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     placeholder="Project Inquiry"
-                                    className="w-full px-5 py-4 rounded-xl bg-[#0d0d18]/80 border border-purple-500/20 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all duration-300 text-base"
+                                    className={`w-full px-5 py-4 rounded-xl bg-dimBlue border border-secondary/30 ${theme === "dark" ? "text-gray-600 bg-primary" : "text-gray-600 bg-dimBlue"} placeholder-gray-500 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 text-base`}
                                     required
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="block text-gray-300 text-sm font-semibold">
+                                <label htmlFor="message" className="block text-gray-400 text-sm font-semibold">
                                     Message
                                 </label>
                                 <textarea
@@ -269,7 +270,7 @@ function Contact() {
                                     onChange={handleChange}
                                     placeholder="Tell me about your project..."
                                     rows={6}
-                                    className="w-full px-5 py-4 rounded-xl bg-[#0d0d18]/80 border border-purple-500/20 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all duration-300 resize-none text-base"
+                                    className={`w-full px-5 py-4 rounded-xl bg-dimBlue border border-secondary/30 ${theme === "dark" ? "text-gray-600 bg-primary" : "text-gray-600 bg-dimBlue"} placeholder-gray-500 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 resize-none text-base`}
                                     required
                                 />
                             </div>
@@ -277,9 +278,9 @@ function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="group cursor-pointer relative w-full py-5 px-8 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className={`group cursor-pointer relative w-full py-5 px-8 rounded-xl bg-secondary text-primary font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-secondary/30 disabled:opacity-70 disabled:cursor-not-allowed ${theme === "dark" ? "bg-secondary text-primary" : "bg-secondary text-white"}`}
                             >
-                                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <span className="absolute inset-0 bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <span className="relative flex items-center justify-center gap-3">
                                     {isSubmitting ? (
                                         <>

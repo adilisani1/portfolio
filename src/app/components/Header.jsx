@@ -35,8 +35,9 @@ function Hero() {
 
     return (
         <section
+            id="home"
             ref={sectionRef}
-            className="min-h-screen flex items-center justify-center px-6 py-24  relative overflow-x-hidden"
+            className="min-h-screen flex items-center justify-center px-4 pt-36 pb-24 md:pt-34 relative overflow-x-hidden"
             // style={{
             //     background: "linear-gradient(180deg, #0a0a12 0%, #0d0d18 100%)",
             // }}
@@ -44,26 +45,26 @@ function Hero() {
             <div className="max-w-4xl mx-auto text-center">
                 <div ref={imageRef} className="mb-8 flex justify-center">
                     <div className="relative">
-                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 bg-purple-500/10 shadow-[0_0_40px_rgba(139,92,246,0.3)]">
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-secondary/30 bg-dimBlue shadow-[0_0_40px_rgba(0,246,255,0.2)]">
                             <img
                                 src="/profile.png"
                                 alt="Muhammad Adil"
                                 className="w-full h-[175px] object-cover aspect-square"
                             />
                         </div>
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-b from-purple-500/20 to-transparent blur-xl -z-10" />
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-b from-secondary/20 to-transparent blur-xl -z-10" />
                     </div>
                 </div>
 
                 <div ref={badgeRef} className="mb-8 flex justify-center">
-                    <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full  border border-purple-500/30 backdrop-blur-sm ${theme === "dark" ? "bg-purple-500/20" : "bg-purple-500/10"}`}>
-                        <span className="text-purple-400 text-sm font-medium">{"Hi! I'm"}</span>
+                    <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-secondary/40 backdrop-blur-sm ${theme === "dark" ? "bg-dimBlue" : "bg-secondary/10"}`}>
+                        <span className="text-secondary text-sm font-medium">{"Hi! I'm"}</span>
                         <span className="font-semibold">Muhammad Adil</span>
-                        <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                     </div>
                 </div>
 
-                <h1 ref={headingRef} className="text-4xl lg:text-5xl font-bold mb-8 leading-tight uppercase font-hanken">
+                <h1 ref={headingRef} className="text-3xl lg:text-5xl font-bold mb-8 leading-tight uppercase font-hanken">
                     <span className="relative inline-block ">
                         <span className="relative z-10">Frontend Software Engineer</span>
                         <span
@@ -90,15 +91,15 @@ function Hero() {
 
                 <p
                     ref={descRef}
-                    className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-hanken"
+                    className="text-dimWhite text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-hanken"
                 >
                     Where passion meets precision: Designing seamless digital experiences with{" "}
-                    <span className="text-purple-400 font-medium">React JS, Next JS, React Native, and WordPress</span>, while
+                    <span className="text-secondary font-medium">React JS, Next JS, React Native, and WordPress</span>, while
                     navigating life from a wheelchair and redefining web development.
                 </p>
 
                 <div ref={buttonsRef} className="flex flex-wrap justify-center gap-4">
-                    <button className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] ${theme === "dark" ? "bg-white text-[#0a0a12] hover:bg-gray-100" : "bg-purple-500/10 text-[#0a0a12] hover:bg-purple-500/20"}`}>
+                    <button className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)] ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}>
                         Contact me
                         <svg
                             className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -109,16 +110,16 @@ function Hero() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </button>
-                    <button className="inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent  font-semibold rounded-full border border-gray-600 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300">
+                    <button className="inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent font-semibold rounded-full border border-secondary/40 hover:border-secondary hover:bg-dimBlue transition-all duration-300">
                         My Resume
                     </button>
                 </div>
 
                 <div className="mt-14 flex justify-center">
-                    <div className="flex flex-col items-center gap-2 text-gray-500">
+                    <div className="flex flex-col items-center gap-2 text-dimWhite">
                         <span className="text-xs uppercase tracking-widest">Scroll</span>
-                        <div className="w-6 h-10 rounded-full border-2 border-gray-600 flex justify-center pt-2">
-                            <div className="w-1.5 h-3 bg-purple-500 rounded-full animate-bounce" />
+                        <div className="w-6 h-10 rounded-full border-2 border-secondary/40 flex justify-center pt-2">
+                            <div className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" />
                         </div>
                     </div>
                 </div>

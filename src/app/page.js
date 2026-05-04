@@ -15,7 +15,7 @@ export default function Home() {
       <Header />
       <About />
       <Services />
-      <Portfolio />
+      <Portfolio limit={4} />
       <Contact />
     </SmoothScroll>
   );

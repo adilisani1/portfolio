@@ -13,27 +13,36 @@
   --color-black-hover: #2a004a;
   --color-orange-22: #1da1f2;
   --color-blue-22: #31a8ff;
+
+  /* App palette – use for cards, accents, text */
+  --color-primary: #00040f;
+  --color-secondary: #00f6ff;
+  --color-dimWhite: rgba(255, 255, 255, 0.7);
+  --color-dimBlue: rgba(9, 151, 124, 0.1);
+}
+
+:root,
+.dark {
+  --color-background: #00040f;
+  --color-text: rgba(255, 255, 255, 0.9);
+  --color-primary: #00040f;
+  --color-secondary: #00f6ff;
+  --color-accent: #00f6ff;
 }
 
 .light {
-  --color-background: #ffffff;
-  --color-text: #000000;
-  --color-primary: #000000;
-  --color-secondary: #000000;
-  --color-accent: #000000;
-}
-
-.dark {
-  --color-background: #000000;
-  --color-text: #ffffff;
-  --color-primary: #ffffff;
-  --color-secondary: #ffffff;
-  --color-accent: #ffffff;
+  --color-background: #f8fafc;
+  --color-text: #00040f;
+  --color-primary: #00040f;
+  --color-secondary: #0891b2;
+  --color-accent: #00f6ff;
 }
 
 html {
   overscroll-behavior: none;
   scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 body {
@@ -117,9 +126,10 @@ body {
 .bg-card-gradient {
   background: linear-gradient(
     108.44deg,
-    rgba(255, 255, 255, 0.1) 20.99%,
-    rgba(255, 255, 255, 0.025) 84.05%
+    var(--color-dimBlue) 20.99%,
+    rgba(0, 246, 255, 0.03) 84.05%
   );
+  border: 1px solid rgba(0, 246, 255, 0.15);
   transition: box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
@@ -128,11 +138,12 @@ body {
 
 .bg-lightCard {
   background: #ffffff;
-  box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 51px rgba(0, 4, 15, 0.08);
 }
 
 .bg-darkCard {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-dimBlue);
+  border: 1px solid rgba(0, 246, 255, 0.2);
   box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.2);
 }
 

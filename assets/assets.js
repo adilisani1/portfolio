@@ -38,8 +38,10 @@ import happycart from "./projects/happycart-file.jpg"
 import portfolio from "./projects/portfolio-file.jpg"
 import domusmeralda from "./projects/domusmeralda-file.jpg"
 import appointment_booking from "./projects/appointmentbooking-file.jpg"
-
-
+import foodwebsite from "./projects/foodwebsite.jpg"
+import weatherapplication from "./projects/weatherapp.jpg"
+import factorlinens from "./projects/factorlenins.jpg"
+import flashybooth from "./projects/flashybooth.jpg"
 
 
 export const assets = {
@@ -246,11 +248,46 @@ export const projects = [
   {
     title: "KaveHome | Furniture E-commerce Clone",
     description:
-      "Headless WordPress Website with Next.js • JavaScript • GraphQL • GSAP • Tailwind CSS",
+      "Headless WordPress Website with Next.js • JavaScript • GraphQL • GSAP • Tailwind CSS • Framer Motion",
     link: "https://kavehome-replica.vercel.app/",
     image: kavehome,
     gradient: "from-purple-600 to-purple-500",
   },
+  
+
+  {
+    title: "Online Appointment Booking Application",
+    description: "Next.js • Node.js • Tailwind CSS • MongoDB",
+    link: "hhttps://appointment-booking-dguo.vercel.app/",
+    image: appointment_booking,
+    gradient: "from-purple-600 to-purple-500",
+  },
+
+  
+    {
+    title: "Portfolio Website",
+    description: "React + Vite • SCSS • GSAP ",
+    link: "https://portfolio-mu-six-24.vercel.app/",
+    image: portfolio,
+    gradient: "from-purple-600 to-purple-500",
+  },
+
+  {
+    title: "Apartment Booking Web Application ",
+    description: "WordPress • PHP",
+    link: "https://dev.domusmeralda.com/product/domusmeralda",
+    image: domusmeralda,
+    gradient: "from-purple-600 to-purple-500",
+  },
+
+    {
+    title: "Food Website",
+    description: "React • Redux • Bootstrap • Node.js • ExpressJS • MongoDB",
+    link: "https://food-front-end-beta.vercel.app/",
+    image: foodwebsite,
+    gradient: "from-purple-600 to-purple-500",
+  },
+  
   {
     title: "HappyCart | E-commerce Website",
     description: "React • Tailwind CSS • Node.js • ExpressJS • MongoDB",
@@ -260,19 +297,26 @@ export const projects = [
   },
 
   {
-    title: "Online Appointment Booking Application",
-    description: "Next.js • Node.js • Tailwind CSS • MongoDB",
-    link: "https://portfolio-mu-six-24.vercel.app/",
-    image: appointment_booking,
+    title: "Weather Application",
+    description: "React • Bootstrap • SCSS • CSS ",
+    link: "https://weather-application-ochre.vercel.app/",
+    image: weatherapplication,
     gradient: "from-purple-600 to-purple-500",
   },
 
-  
+ {
+    title: "Factor Linens | E-commerce Website",
+    description: "WordPress • WooCommerce • Custom Theme",
+    link: "https://factorlinens.com/",
+    image: factorlinens, // make sure you import this
+    gradient: "from-purple-600 to-purple-500",
+  },
+
   {
-    title: "Full Stack Apartment Booking Web Application ",
-    description: "WordPress • PHP",
-    link: "https://dev.domusmeralda.com/",
-    image: domusmeralda,
+    title: "Flashy Booth | Event Booking Website",
+    description: "WordPress • Elementor • Custom Design",
+    link: "https://www.flashybooth.com.au/",
+    image: flashybooth, // import this too
     gradient: "from-purple-600 to-purple-500",
   },
 ];
