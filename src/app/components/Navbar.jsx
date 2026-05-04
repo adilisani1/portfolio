@@ -18,7 +18,6 @@ function Navbar() {
         { name: "About", href: "#about" },
         { name: "Services", href: "#services" },
         { name: "Portfolio", href: "#portfolio" },
-        { name: "Contact", href: "#contact" },
     ]
 
     useEffect(() => {
@@ -168,11 +167,11 @@ function Navbar() {
                         </button>
                     </div> */}
                 </div>
-                <div className="flex-1 flex justify-end">
+                <div className="flex-1 flex justify-end items-center">
                     <button
                         type="button"
                         onClick={() => scrollToSection("#contact")}
-                        className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)] ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}
+                        className={`group hidden md:inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)] ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}
                     >
                         Contact me
                         <svg
@@ -184,25 +183,59 @@ function Navbar() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </button>
+
+                    <button
+                        type="button"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="nav-item cursor-pointer md:hidden w-11 h-11 rounded-full bg-dimBlue border border-secondary/30 flex items-center justify-center hover:bg-secondary/20 transition-all duration-300"
+                        aria-label="Toggle menu"
+                        aria-expanded={isMobileMenuOpen}
+                    >
+                        <div className="flex flex-col gap-1.5">
+                            <span
+                                className={`w-5 h-0.5 bg-secondary transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+                            />
+                            <span
+                                className={`w-5 h-0.5 bg-secondary transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
+                            />
+                            <span
+                                className={`w-5 h-0.5 bg-secondary transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                            />
+                        </div>
+                    </button>
                 </div>
             </div>
 
             {/* Mobile menu */}
             <div
-                className={`md:hidden absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-md border-b border-secondary/20 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-64 py-4" : "max-h-0 py-0"
-                    }`}
+                className={`md:hidden absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-md border-b border-secondary/20 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-[480px] py-4" : "max-h-0 py-0"}`}
             >
-                <div className="flex flex-col items-center gap-2 px-6">
+                <div className="flex flex-col items-stretch gap-1 px-6">
                     {navLinks.map((link) => (
                         <button
                             type="button"
                             key={link.name}
                             onClick={() => scrollToSection(link.href)}
-                            className={`w-full py-3  rounded-lg transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white" : "text-black"}`}
+                            className={`w-full py-3 px-4 text-left rounded-lg hover:bg-secondary/10 hover:text-secondary transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white" : "text-black"}`}
                         >
                             {link.name}
                         </button>
                     ))}
+                    <button
+                        type="button"
+                        onClick={() => scrollToSection("#contact")}
+                        className={`group mt-3 inline-flex cursor-pointer items-center justify-center gap-2 px-6 py-3 font-semibold rounded-full transition-all duration-300 ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}
+                    >
+                        Contact me
+                        <svg
+                            className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
