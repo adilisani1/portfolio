@@ -28,8 +28,24 @@ function Portfolio({
     const itemsRef = useRef([])
     const revealRef = useRef(null)
     const [currentItem, setCurrentItem] = useState(null)
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
     const lastMousePos = useRef({ x: 0, y: 0 })
+    const [isHoverCapable, setIsHoverCapable] = useState(false)
+
+    useLayoutEffect(() => {
+        const updateHoverCapability = () => {
+            // Only enable the floating preview on devices that actually support hover
+            // (prevents "stuck hover" on mobile/touch screens).
+            const canHover =
+                typeof window !== "undefined" &&
+                window.matchMedia &&
+                window.matchMedia("(hover: hover) and (pointer: fine)").matches
+            setIsHoverCapable(Boolean(canHover))
+        }
+
+        updateHoverCapability()
+        window.addEventListener("resize", updateHoverCapability)
+        return () => window.removeEventListener("resize", updateHoverCapability)
+    }, [])
 
     useLayoutEffect(() => {
         if (revealRef.current) {
@@ -66,7 +82,7 @@ function Portfolio({
 
     useLayoutEffect(() => {
         const handleMouseMove = (e) => {
-            if (!revealRef.current || currentItem === null) return
+            if (!isHoverCapable || !revealRef.current || currentItem === null) return
 
             const mouse = { x: e.clientX, y: e.clientY }
 
@@ -96,10 +112,10 @@ function Portfolio({
 
         window.addEventListener("mousemove", handleMouseMove)
         return () => window.removeEventListener("mousemove", handleMouseMove)
-    }, [currentItem])
+    }, [currentItem, isHoverCapable])
 
     useLayoutEffect(() => {
-        if (!revealRef.current) return
+        if (!isHoverCapable || !revealRef.current) return
 
         if (currentItem !== null) {
             const project = visibleProjects[currentItem]
@@ -160,9 +176,10 @@ function Portfolio({
                 },
             })
         }
-    }, [currentItem])
+    }, [currentItem, isHoverCapable])
 
     const onMouseEnter = (index, e) => {
+        if (!isHoverCapable) return
         setCurrentItem(index)
     }
 
@@ -194,7 +211,13 @@ function Portfolio({
                 <ul ref={component} className="relative" onMouseLeave={onMouseLeave}>
                     {visibleProjects.map((project, index) => (
                         <li key={index} ref={(el) => (itemsRef.current[index] = el)} className="opacity-0 group">
-                            <a href={project.link} target="_blank" className="block" onMouseEnter={(e) => onMouseEnter(index, e)}>
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                className="block"
+                                onMouseEnter={(e) => onMouseEnter(index, e)}
+                                onTouchStart={onMouseLeave}
+                            >
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 md:px-12 py-8 border-t border-secondary/20 hover:bg-dimBlue transition-all duration-300">
                                     <div className="flex-1">
                                         <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-secondary group-hover:to-secondary group-hover:bg-clip-text transition-all">
@@ -241,33 +264,39 @@ function Portfolio({
                 )}
             </div>
 
-            <div
-                ref={revealRef}
-                className="pointer-events-none fixed z-[9999] rounded-2xl shadow-2xl border-2 border-secondary/50 overflow-hidden"
-                style={{
-                    width: "220px",
-                    height: "320px",
-                    left: "0px",
-                    top: "0px",
-                }}
-            >
-                <div className="absolute inset-0 bg-dimBlue backdrop-blur-sm" />
-                {currentItem !== null && visibleProjects[currentItem]?.image && (
-                    <img
-                        key={`project-${currentItem}-${typeof visibleProjects[currentItem].image === "string" ? visibleProjects[currentItem].image : visibleProjects[currentItem].image?.src}`}
-                        src={typeof visibleProjects[currentItem].image === "string" ? visibleProjects[currentItem].image : visibleProjects[currentItem].image?.src || "/placeholder.svg"}
-                        alt={visibleProjects[currentItem]?.title || "Project preview"}
-                        className="relative  w-full h-full object-cover"
-                        loading="eager"
-                        onError={(e) => {
-                            console.error("Image failed to load:", visibleProjects[currentItem]?.image)
-                            e.currentTarget.onerror = null
-                            e.currentTarget.src =
-                                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='320'%3E%3Crect fill='%23334155' width='220' height='320'/%3E%3Ctext fill='%2394a3b8' fontFamily='sans-serif' fontSize='14' x='50%25' y='50%25' textAnchor='middle' dominantBaseline='middle'%3ENo image%3C/text%3E%3C/svg%3E"
-                        }}
-                    />
-                )}
-            </div>
+            {isHoverCapable && (
+                <div
+                    ref={revealRef}
+                    className="pointer-events-none fixed z-[9999] rounded-2xl shadow-2xl border-2 border-secondary/50 overflow-hidden"
+                    style={{
+                        width: "220px",
+                        height: "320px",
+                        left: "0px",
+                        top: "0px",
+                    }}
+                >
+                    <div className="absolute inset-0 bg-dimBlue backdrop-blur-sm" />
+                    {currentItem !== null && visibleProjects[currentItem]?.image && (
+                        <img
+                            key={`project-${currentItem}-${typeof visibleProjects[currentItem].image === "string" ? visibleProjects[currentItem].image : visibleProjects[currentItem].image?.src}`}
+                            src={
+                                typeof visibleProjects[currentItem].image === "string"
+                                    ? visibleProjects[currentItem].image
+                                    : visibleProjects[currentItem].image?.src || "/placeholder.svg"
+                            }
+                            alt={visibleProjects[currentItem]?.title || "Project preview"}
+                            className="relative w-full h-full object-cover"
+                            loading="eager"
+                            onError={(e) => {
+                                console.error("Image failed to load:", visibleProjects[currentItem]?.image)
+                                e.currentTarget.onerror = null
+                                e.currentTarget.src =
+                                    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='320'%3E%3Crect fill='%23334155' width='220' height='320'/%3E%3Ctext fill='%2394a3b8' fontFamily='sans-serif' fontSize='14' x='50%25' y='50%25' textAnchor='middle' dominantBaseline='middle'%3ENo image%3C/text%3E%3C/svg%3E"
+                            }}
+                        />
+                    )}
+                </div>
+            )}
         </section>
     )
 }
