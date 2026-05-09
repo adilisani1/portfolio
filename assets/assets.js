@@ -258,7 +258,7 @@ export const projects = [
   {
     title: "Online Appointment Booking Application",
     description: "Next.js • Node.js • Tailwind CSS • MongoDB",
-    link: "hhttps://appointment-booking-dguo.vercel.app/",
+    link: "https://appointment-booking-dguo.vercel.app/",
     image: appointment_booking,
     gradient: "from-purple-600 to-purple-500",
   },
