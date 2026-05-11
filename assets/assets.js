@@ -291,7 +291,7 @@ export const projects = [
   {
     title: "HappyCart | E-commerce Website",
     description: "React • Tailwind CSS • Node.js • ExpressJS • MongoDB",
-    link: "https://happycart-frontend-adilisani.vercel.app/",
+    link: "https://happycart-ashen.vercel.app/",
     image: happycart,
     gradient: "from-purple-600 to-purple-500",
   },
