@@ -233,9 +233,11 @@ function About() {
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-5xl">
                         <p className=" text-lg leading-relaxed">
-                            I'm a <span className="font-medium">MERN stack developer</span> who loves working with
-                            React.js, Next.js, React Native, and WordPress. I've spent the last few years diving deep into front-end
-                            development, building clean, fast, and user-friendly websites and apps.
+                            I'm a <span className="font-medium">MERN Stack Software Engineer</span> who enjoys building modern
+                            web and mobile applications that people love to use. I work with <span className="text-secondary font-medium">React.js,
+                            Next.js, Node.js, React Native, and WordPress</span> to create fast, scalable, and user-friendly
+                            products. Over the years, I've developed a strong attention to detail and a passion for turning
+                            ideas into meaningful digital experiences by combining clean design with solid engineering.
                         </p>
                         <p className=" text-lg leading-relaxed">
                             Living with <span className="font-medium">Muscular Dystrophy</span> and being a wheelchair user

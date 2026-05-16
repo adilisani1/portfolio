@@ -13,6 +13,11 @@ function Navbar() {
 
     const { theme, toggleTheme } = useContext(ThemeContext)
 
+    const handleThemeToggle = () => {
+        toggleTheme()
+        setIsMobileMenuOpen(false)
+    }
+
     const navLinks = [
         { name: "Home", href: "#home" },
         { name: "About", href: "#about" },
@@ -113,7 +118,7 @@ function Navbar() {
                     <button
                         type="button"
                         onClick={toggleTheme}
-                        className={`nav-item hidden md:inline-flex cursor-pointer w-10 h-10 rounded-full border border-secondary/30 items-center justify-center hover:border-secondary/60 transition-all duration-300 ${theme === "dark" ? "bg-dimBlue text-white" : "bg-secondary/10 text-primary"}`}
+                        className={`nav-item hidden md:inline-flex cursor-pointer w-10 h-10 rounded-full border border-secondary/30 items-center justify-center hover:border-secondary/60 hover:scale-105 active:scale-95 transition-all duration-300 ${theme === "dark" ? "bg-dimBlue text-white" : "bg-secondary/10 text-primary"}`}
                         aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                     >
                         {theme === "dark" ? (
@@ -167,7 +172,7 @@ function Navbar() {
 
             {/* Mobile menu */}
             <div
-                className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-secondary/20 transition-all duration-300 overflow-hidden ${theme === "dark" ? "bg-primary/95" : "bg-white/95"} ${isMobileMenuOpen ? "max-h-[640px] py-4" : "max-h-0 py-0"}`}
+                className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-xl border-b shadow-xl transition-all duration-500 ease-out overflow-hidden ${theme === "dark" ? "bg-primary/95 border-secondary/20 shadow-black/30" : "bg-white border-gray-200 shadow-gray-200/60"} ${isMobileMenuOpen ? "max-h-[640px] py-5 opacity-100" : "max-h-0 py-0 opacity-0"}`}
             >
                 <div className="flex flex-col items-stretch gap-1 px-6">
                     {navLinks.map((link) => (
@@ -175,15 +180,16 @@ function Navbar() {
                             type="button"
                             key={link.name}
                             onClick={() => scrollToSection(link.href)}
-                            className={`w-full py-3 px-4 text-left rounded-lg hover:bg-secondary/10 hover:text-secondary transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white" : "text-black"}`}
+                            className={`w-full py-3 px-4 text-left rounded-xl transition-all duration-300 text-sm font-medium hover:translate-x-1 ${theme === "dark" ? "text-white hover:bg-secondary/10 hover:text-secondary" : "text-gray-800 hover:bg-secondary/10 hover:text-secondary"}`}
                         >
                             {link.name}
                         </button>
                     ))}
+                    <div className={`my-3 h-px ${theme === "dark" ? "bg-secondary/15" : "bg-gray-200"}`} />
                     <button
                         type="button"
-                        onClick={toggleTheme}
-                        className={`mt-2 w-full py-3 px-4 inline-flex items-center justify-between rounded-lg border border-secondary/20 hover:border-secondary/50 transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white" : "text-black"}`}
+                        onClick={handleThemeToggle}
+                        className={`w-full py-3 px-4 inline-flex items-center justify-between rounded-xl border transition-all duration-300 text-sm font-medium ${theme === "dark" ? "text-white border-secondary/20 hover:border-secondary/50 hover:bg-secondary/5" : "text-gray-800 bg-gray-50 border-gray-200 hover:border-secondary/40 hover:bg-secondary/5"}`}
                         aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                     >
                         <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>

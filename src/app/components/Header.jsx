@@ -4,6 +4,8 @@ import { useContext, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ThemeContext } from "../context/ThemeContext"
 
+const RESUME_URL = "/Muhammad-Adil-CV.pdf"
+
 function Hero() {
     const sectionRef = useRef(null)
     const imageRef = useRef(null)
@@ -47,7 +49,7 @@ function Hero() {
                     <div className="relative">
                         <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-secondary/30 bg-dimBlue shadow-[0_0_40px_rgba(0,246,255,0.2)]">
                             <img
-                                src="/profile.png"
+                                src="/my-dp.png"
                                 alt="Muhammad Adil"
                                 className="w-full h-[175px] object-cover aspect-square"
                             />
@@ -66,7 +68,7 @@ function Hero() {
 
                 <h1 ref={headingRef} className="text-3xl lg:text-5xl font-bold mb-8 leading-tight uppercase font-hanken">
                     <span className="relative inline-block ">
-                        <span className="relative z-10">Frontend Software Engineer</span>
+                        <span className="relative z-10">MERN Stack Software Engineer</span>
                         <span
                             className="absolute inset-0 -skew-x-2  -z-0 scale-y-110 opacity-80"
                             style={{ transform: "skewX(-2deg) scaleY(1.1)" }}
@@ -110,9 +112,15 @@ function Hero() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </button>
-                    <button className="inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent font-semibold rounded-full border border-secondary/40 hover:border-secondary hover:bg-dimBlue transition-all duration-300">
+                    <a
+                        href={RESUME_URL}
+                        download="Muhammad-Adil-CV.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent font-semibold rounded-full border border-secondary/40 hover:border-secondary hover:bg-dimBlue transition-all duration-300"
+                    >
                         My Resume
-                    </button>
+                    </a>
                 </div>
 
                 <div className="mt-14 flex justify-center">

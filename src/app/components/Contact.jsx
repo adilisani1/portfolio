@@ -79,7 +79,7 @@ function Contact() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl" />
             </div>
 
-            <div className="container mx-auto relative z-10  px-6 md:px-12 pt-24 pb-12 ">
+            <div className="container mx-auto relative z-10  px-4 md:px-12 pt-24 pb-12 ">
                 <div className="text-left mb-20">
                     <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-secondary/40 bg-dimBlue mb-10">
                         <span className="relative flex h-2.5 w-2.5">
@@ -278,7 +278,7 @@ function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className={`group cursor-pointer relative w-full py-5 px-8 rounded-xl bg-secondary text-primary font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-secondary/30 disabled:opacity-70 disabled:cursor-not-allowed ${theme === "dark" ? "bg-secondary text-primary" : "bg-secondary text-white"}`}
+                                className={`group cursor-pointer relative w-full py-3 lg:py-5 px-4 lg:px-8 rounded-md bg-secondary text-primary font-bold text-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-secondary/30 disabled:opacity-70 disabled:cursor-not-allowed ${theme === "dark" ? "bg-secondary text-primary" : "bg-secondary text-white"}`}
                             >
                                 <span className="absolute inset-0 bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <span className="relative flex items-center justify-center gap-3">

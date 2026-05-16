@@ -218,7 +218,7 @@ function Portfolio({
                                 onMouseEnter={(e) => onMouseEnter(index, e)}
                                 onTouchStart={onMouseLeave}
                             >
-                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-6 md:px-12 py-8 border-t border-secondary/20 hover:bg-dimBlue transition-all duration-300">
+                                <div className="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-6 px-6 md:px-12 py-8 border-t border-secondary/20 hover:bg-dimBlue transition-all duration-300">
                                     <div className="flex-1">
                                         <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-secondary group-hover:to-secondary group-hover:bg-clip-text transition-all">
                                             {project.title}
@@ -226,12 +226,12 @@ function Portfolio({
                                         <p className="text-gray-400 text-sm md:text-base">{project.description}</p>
                                     </div>
 
-                                    <div className="flex items-center gap-2  font-semibold group-hover:gap-3 transition-all duration-300">
+                                    <div className="flex items-center gap-2 lg:justify-start justify-between  w-full lg:w-auto font-semibold group-hover:gap-3 transition-all duration-300">
                                         <span className={`text-sm md:text-base px-3 py-1 rounded-full transition-colors duration-300 ${theme === "light" ? "bg-secondary/10 text-secondary" : ""}`}>{viewMoreText}</span>
                                         <div
                                             className="w-8 h-8 rounded-full bg-gradient-to-tl from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                                         >
-                                            <MdArrowOutward className="text-lg text-white" />
+                                            <MdArrowOutward className="text-lg  text-white" />
                                         </div>
                                     </div>
                                 </div>
