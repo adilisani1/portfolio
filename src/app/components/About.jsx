@@ -241,7 +241,7 @@ function About() {
                         </p>
                         <p className=" text-lg leading-relaxed">
                             Living with <span className="font-medium">Muscular Dystrophy</span> and being a wheelchair user
-                            for the past 10 years has not only shaped my abilities but also fueled my drive to create and break new
+                            has not only shaped my abilities but also fueled my drive to create and break new
                             ground. I believe that{" "}
                             <span className="text-secondary font-medium">every challenge is an opportunity</span>.
                         </p>
