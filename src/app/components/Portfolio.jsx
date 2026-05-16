@@ -227,7 +227,7 @@ function Portfolio({
                                     </div>
 
                                     <div className="flex items-center gap-2 lg:justify-start justify-between  w-full lg:w-auto font-semibold group-hover:gap-3 transition-all duration-300">
-                                        <span className={`text-sm md:text-base px-3 py-1 rounded-full transition-colors duration-300 ${theme === "light" ? "bg-secondary/10 text-secondary" : ""}`}>{viewMoreText}</span>
+                                        <span className={`text-sm md:text-base px-3 py-1 rounded-full transition-colors duration-300 ${theme === "light" ? "bg-secondary/10 text-secondary" : "bg-secondary/15 text-secondary"}`}>{viewMoreText}</span>
                                         <div
                                             className="w-8 h-8 rounded-full bg-gradient-to-tl from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                                         >
