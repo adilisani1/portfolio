@@ -16,6 +16,17 @@ function Hero() {
 
     const { theme } = useContext(ThemeContext)
 
+    const scrollToContact = () => {
+        const lenis = typeof window !== "undefined" ? window.lenis : null
+        const element = document.querySelector("#contact")
+        if (!element) return
+        if (lenis) {
+            lenis.scrollTo(element, { duration: 1.1 })
+        } else {
+            element.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+    }
+
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
@@ -101,7 +112,11 @@ function Hero() {
                 </p>
 
                 <div ref={buttonsRef} className="flex flex-wrap justify-center gap-4">
-                    <button className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)] ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}>
+                    <button
+                        type="button"
+                        onClick={scrollToContact}
+                        className={`group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,246,255,0.2)] ${theme === "dark" ? "bg-secondary text-primary hover:bg-cyan-300" : "bg-secondary/20 text-primary hover:bg-secondary/30"}`}
+                    >
                         Contact me
                         <svg
                             className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -117,9 +132,17 @@ function Hero() {
                         download="Muhammad-Adil-CV.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent font-semibold rounded-full border border-secondary/40 hover:border-secondary hover:bg-dimBlue transition-all duration-300"
+                        className="group inline-flex cursor-pointer items-center gap-2 px-8 py-2.5 bg-transparent font-semibold rounded-full border border-secondary/40 hover:border-secondary hover:bg-dimBlue transition-all duration-300"
                     >
-                        My Resume
+                        My CV
+                        <svg
+                            className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                        </svg>
                     </a>
                 </div>
 

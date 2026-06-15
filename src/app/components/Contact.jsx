@@ -5,13 +5,20 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import emailjs from "@emailjs/browser"
 
 gsap.registerPlugin(ScrollTrigger)
 import { ThemeContext } from "../context/ThemeContext"
+
+const EMAILJS_SERVICE_ID = "service_4nkohlk"
+const EMAILJS_TEMPLATE_ID = "template_ykprq0c"
+const EMAILJS_PUBLIC_KEY = "9F0zHcMKF7mN0DeIG"
+
 function Contact() {
     const { theme } = useContext(ThemeContext)
     const sectionRef = useRef(null)
     const formRef = useRef(null)
+    const formCardRef = useRef(null)
     const infoRef = useRef(null)
     const [formData, setFormData] = useState({
         name: "",
@@ -20,6 +27,8 @@ function Contact() {
         message: "",
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -36,9 +45,9 @@ function Contact() {
                 ease: "power2.out",
             })
 
-            gsap.from(formRef.current, {
+            gsap.from(formCardRef.current, {
                 scrollTrigger: {
-                    trigger: formRef.current,
+                    trigger: formCardRef.current,
                     start: "top 85%",
                     toggleActions: "play none none reverse",
                 },
@@ -53,13 +62,33 @@ function Contact() {
         return () => ctx.revert()
     }, [])
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         setIsSubmitting(true)
-        await new Promise((resolve) => setTimeout(resolve, 1500))
-        console.log("Form submitted:", formData)
-        setIsSubmitting(false)
-        setFormData({ name: "", email: "", subject: "", message: "" })
+        setSuccess(false)
+        setError(false)
+
+        emailjs
+            .sendForm(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                formRef.current,
+                EMAILJS_PUBLIC_KEY,
+            )
+            .then(
+                () => {
+                    setSuccess(true)
+                    setError(false)
+                    setIsSubmitting(false)
+                    formRef.current.reset()
+                    setFormData({ name: "", email: "", subject: "", message: "" })
+                },
+                () => {
+                    setError(true)
+                    setSuccess(false)
+                    setIsSubmitting(false)
+                },
+            )
     }
 
     const handleChange = (e) => {
@@ -202,14 +231,14 @@ function Contact() {
                     </div>
 
                     <div
-                        ref={formRef}
+                        ref={formCardRef}
                         className="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-dimBlue border border-secondary/20 backdrop-blur-xl shadow-2xl shadow-secondary/10 relative overflow-hidden"
                     >
                         {/* Form glow effect */}
                         <div className="absolute -top-24 -right-24 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
                         <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
-                        <form onSubmit={handleSubmit} className="relative space-y-7">
+                        <form ref={formRef} onSubmit={handleSubmit} className="relative space-y-7">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="block text-gray-400 text-sm font-semibold">
@@ -274,6 +303,23 @@ function Contact() {
                                     required
                                 />
                             </div>
+
+                            {success && (
+                                <div className="flex items-center gap-3 p-4 rounded-xl bg-secondary/10 border border-secondary/40 text-secondary text-sm font-medium">
+                                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Thanks! Your message has been sent. I'll get back to you shortly.
+                                </div>
+                            )}
+                            {error && (
+                                <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/40 text-red-400 text-sm font-medium">
+                                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Something went wrong. Please try again or email me directly.
+                                </div>
+                            )}
 
                             <button
                                 type="submit"
