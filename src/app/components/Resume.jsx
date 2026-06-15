@@ -336,7 +336,7 @@ function Resume() {
                                             </span>
                                         </div>
 
-                                        <h4 className={`text-2xl md:text-3xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
+                                        <h4 className={`text-xl md:text-2xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                                             {item.title}
                                         </h4>
                                         <p className="text-secondary font-semibold text-base md:text-lg mb-4">
