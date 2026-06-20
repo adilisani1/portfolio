@@ -52,7 +52,7 @@ const experience = [
 
 const education = [
     {
-        date: "AUG 2025 — AUG 2027",
+        date: "AUG 2025 — PRESENT",
         title: "Allama Iqbal Open University",
         subtitle: "Bachelor of Commerce",
         description:
